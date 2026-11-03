@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윤원준 | 프로필</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- External CSS 파일 연결 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 내비게이션 바 -->
+    <nav class="navbar">
+        <div class="logo">WONJUN.</div>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#home">홈</a></li>
+                <li><a href="#about">소개</a></li>
+                <li><a href="#interests">관심사 & 취미</a></li>
+                <li><a href="#guestbook">방명록</a></li>
+            </ul>
+            <button class="settings-toggle-btn" id="open-settings-btn" title="설정">⚙</button>
+        </div>
+    </nav>
+
+    <!-- 메인 화면 (히어로) -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <span class="badge">공학첨단자율학부 1학년</span>
+            <h1>안녕하세요, <br><span class="highlight">윤원준</span>입니다.</h1>
+            <p>경북대학교에서 공학의 기초를 다지며, 새로운 기술과 웹 개발을 배워가는 중입니다.</p>
+            <div class="tags">
+                <span>#공대생</span>
+                <span>#마산</span>
+                <span>#KNU_26학번</span>
+            </div>
+            <a href="#about" class="btn">더 알아보기 ↓</a>
+        </div>
+    </section>
+
+    <!-- 자기소개 섹션 -->
+    <section id="about" class="container">
+        <h2 class="section-title">ABOUT ME</h2>
+        <div class="profile-card">
+            <div class="profile-info">
+                <h3>윤원준 <small>(Yoon Wonjun)</small></h3>
+                <p class="school">🎓 경북대학교 공학첨단자율학부 (1학년)</p>
+                <p class="bio">
+                    마산 출신의 열정 넘치는 공대생입니다. <br>
+                    현재 웹 개발의 기초부터 시작하여 나만의 아이디어를 시각적으로 구현하는 즐거움을 느껴가는 중입니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 관심사 & 취미 섹션 -->
+    <section id="interests" class="container">
+        <h2 class="section-title">INTERESTS & HOBBIES</h2>
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-icon">⚾</div>
+                <h3>요즘 관심있는 것</h3>
+                <h4>야구 (Baseball)</h4>
+                <p>요즘 야구 경기 보는 것에 푸욱 빠져있습니다. 마산 출신답게 뜨거운 열정으로 경기를 즐깁니다!</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎮</div>
+                <h3>좋아하는 것</h3>
+                <h4>게임 (Gaming)</h4>
+                <p>전략적인 플레이와 몰입감 있는 플레이를 좋아합니다. 스트레스 해소이자 소중한 취미입니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="weather" class="container">
+        <h2 class="section-title">WEATHER</h2>
+        <div class="profile-card">
+            <h3>도시별 현재 날씨</h3>
+            <form id="weather-form" class="form-group">
+                <label for="weather-city">도시 이름</label>
+                <input id="weather-city" type="search" value="Daegu" placeholder="Daegu, Masan, Tokyo, London" maxlength="100" required>
+                <button type="submit" id="weather-retry" class="btn">날씨 검색</button>
+                <button type="button" id="weather-masan" class="btn">마산 날씨 보기</button>
+            </form>
+            <p id="weather-status" role="status" aria-live="polite">날씨를 가져오는 중입니다.</p>
+            <div id="weather-result" hidden>
+                <h4 id="weather-place"></h4>
+                <dl class="weather-measures">
+                    <div><dt>현재 기온</dt><dd id="weather-temperature"></dd></div>
+                    <div><dt>체감온도</dt><dd id="weather-feels"></dd></div>
+                    <div><dt>풍속</dt><dd id="weather-wind"></dd></div>
+                </dl>
+                <p id="weather-time"></p>
+                <div class="weather-outfit">
+                    <h4>오늘의 옷차림 제안</h4>
+                    <p id="weather-outfit"></p>
+                    <small>현재 기온과 풍속을 기준으로 한 참고용 제안입니다. 개인의 추위·더위 민감도에 맞춰 조절하세요.</small>
+                </div>
+            </div>
+            <p class="weather-credit">날씨 제공: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a></p>
+        </div>
+    </section>
+
+    <!-- 방명록 섹션 -->
+    <section id="guestbook" class="container">
+        <h2 class="section-title">GUESTBOOK</h2>
+        <form id="guestbook-form" class="guestbook-form">
+            <div class="form-group">
+                <input type="text" id="author-input" placeholder="작성자 이름 (예: 홍길동)" required autocomplete="off">
+                <textarea id="message-input" rows="3" placeholder="남길 메시지를 입력하세요..." required></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">메시지 남기기</button>
+        </form>
+        <div id="guestbook-list" class="guestbook-list"></div>
+    </section>
+
+    <!-- Settings 패널 레이어 -->
+    <div class="settings-overlay" id="settings-overlay"></div>
+    <aside class="settings-panel" id="settings-panel">
+        <div class="settings-header">
+            <h3>⚙️ 환경 설정</h3>
+            <button class="close-btn" id="close-settings-btn">&times;</button>
+        </div>
+
+        <!-- 1. Dark / Light 모드 -->
+        <div class="setting-item">
+            <label>테마 모드</label>
+            <div class="segmented-control">
+                <button type="button" id="theme-dark-btn">Dark</button>
+                <button type="button" id="theme-light-btn">Light</button>
+            </div>
+        </div>
+
+        <!-- 2. Accent Color 선택 -->
+        <div class="setting-item">
+            <label>포인트 컬러 (Accent)</label>
+            <div class="color-options">
+                <div class="color-dot" data-color="#38bdf8" style="background: #38bdf8;" title="Sky Blue"></div>
+                <div class="color-dot" data-color="#34d399" style="background: #34d399;" title="Emerald"></div>
+                <div class="color-dot" data-color="#a78bfa" style="background: #a78bfa;" title="Purple"></div>
+                <div class="color-dot" data-color="#fbbf24" style="background: #fbbf24;" title="Amber"></div>
+                <div class="color-dot" data-color="#f43f5e" style="background: #f43f5e;" title="Rose"></div>
+            </div>
+        </div>
+
+        <!-- 3. 글자 크기 조절 -->
+        <div class="setting-item">
+            <label>글자 크기</label>
+            <input type="range" id="font-slider" class="font-slider" min="14" max="20" step="1">
+            <div class="font-val-label" id="font-val-label">16px</div>
+        </div>
+
+        <!-- 4. 애니메이션 ON / OFF -->
+        <div class="setting-item">
+            <label>애니메이션 효과</label>
+            <div class="segmented-control">
+                <button type="button" id="anim-on-btn">ON</button>
+                <button type="button" id="anim-off-btn">OFF</button>
+            </div>
+        </div>
+
+        <!-- 5. Reset 버튼 -->
+        <button type="button" class="reset-btn" id="reset-settings-btn">🔄 설정 초기화</button>
+    </aside>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>© 2026 Yoon Wonjun. Built with HTML & CSS.</p>
+    </footer>
+
+    <!-- External JavaScript 파일 연결 -->
+    <script src="script.js"></script>
+</body>
+</html>
